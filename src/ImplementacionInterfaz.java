@@ -10,12 +10,12 @@ public class ImplementacionInterfaz extends UnicastRemoteObject implements Inter
 
     // Implementar los metodos creados en la Interfaz
     @Override
-    public String mensaje() {
+    public String mensaje() throws RemoteException {
         return "Hola desde el servidor";
     }
 
     @Override
-    public double suma(double a, double b) {
+    public double suma(double a, double b) throws RemoteException {
         return a + b;
     }
 }

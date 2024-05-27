@@ -13,7 +13,7 @@ public class Servidor {
             Registry registro = LocateRegistry.createRegistry(1099);
 
             // Vincular la implementacion remota con un nombre especifico
-            registro.rebind("Cliente Remoto", objetoRemoto);
+            registro.rebind("ClienteRemoto", objetoRemoto);
 
             System.out.println("Servidor iniciado");
         }catch (RemoteException e){

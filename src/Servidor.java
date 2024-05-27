@@ -1,7 +1,21 @@
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+
 public class Servidor {
     public static void main(String[] args) {
 
-        // Crear una instancia de la implementacion de la interfaz
-        Interfaz objetoRemoto = new ImplementacionInterfaz();
+        try{
+            // Crear una instancia de la implementacion de la interfaz
+            Interfaz objetoRemoto = new ImplementacionInterfaz();
+
+            // Crear registro RMI en un puerto especifico
+            Registry registro = LocateRegistry.createRegistry(1099);
+
+            // Vincular la implementacion remota con un nombre especifico
+            registro.rebind("objetoRemoto", objetoRemoto);
+        }catch (RemoteException e){
+            e.printStackTrace();
+        }
     }
 }

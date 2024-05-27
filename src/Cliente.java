@@ -1,4 +1,3 @@
-import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
@@ -7,7 +6,8 @@ public class Cliente {
 
         try{
             // Obtener el registro
-            Registry registro = LocateRegistry.getRegistry("localhost", 1099);
+            // En host va localhost o la ip de quien quieres conectarte
+            Registry registro = LocateRegistry.getRegistry("172.31.115.130", 1099);
 
             // Crear la instancia de la implementacion de la interfaz
             Interfaz objetoRemoto = (Interfaz) registro.lookup("ClienteRemoto");
